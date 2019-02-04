@@ -1,5 +1,6 @@
 import random as r
 class Card:
+    
     def __init__(self):
         self.__suit=[]
         self.__color=('Heart','Diamond','clove','Spade')
@@ -11,16 +12,34 @@ class Card:
 
     def getsuit(self):
         return self.__suit
+    
+    def getcardfromsuit(self):
+        return self.__suit.pop()
 
-class Player(Card):
-    def __init__(self,pcards=[]):
-        pass
+class Player:
+    def __init__(self,n,suit):
+        self.__pcard=[suit.getcardfromsuit() for x in range(n)]
+
+    def mycard(self):
+        return self.__pcard
+        
 
 
 
+suit=Card()
 
+print('The Deck::',suit.getsuit())
+print('======================================================================')
+p1=Player(13,suit)
 
-c1=Card()
+print('The p1 card::',p1.mycard())
+p2=Player(13,suit)
 
+print('The p2 card::',p2.mycard())
+p3=Player(13,suit)
 
-print('The suffled deck::',c1.getsuit())
+print('The p3 card::',p3.mycard())
+p4=Player(13,suit)
+print('The p4 card::',p4.mycard())
+print('======================================================================')
+print('The left deck::',suit.getsuit())
